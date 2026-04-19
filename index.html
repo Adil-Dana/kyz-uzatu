@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #ffffff;
@@ -23,7 +24,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -90,8 +90,6 @@
       0% { transform: translateY(-10vh) translateX(0) rotate(0deg) scale(0.9); }
       100% { transform: translateY(120vh) translateX(65px) rotate(360deg) scale(1.1); }
     }
-      100% { transform: translateY(120vh) translateX(40px) rotate(360deg); }
-    }
 
     .wrapper {
       position: relative;
@@ -121,7 +119,10 @@
       transition: .25s ease;
     }
 
-    .lang-switch:hover { transform: translateY(-1px); background: #fff; }
+    .lang-switch:hover {
+      transform: translateY(-1px);
+      background: #fff;
+    }
 
     .invite {
       position: relative;
@@ -192,7 +193,9 @@
       margin-bottom: 12px;
     }
 
-    h1, h2, h3, .names, .date-big { font-family: 'Cormorant Garamond', serif; }
+    h1, h2, h3, .names, .date-big {
+      font-family: 'Cormorant Garamond', serif;
+    }
 
     .script {
       font-family: 'Great Vibes', cursive;
@@ -300,7 +303,6 @@
       color: var(--gold);
     }
 
-    .program-item,
     .place-card,
     .rsvp-box {
       background: linear-gradient(180deg, rgba(255,255,255,0.68), rgba(255,250,242,0.72));
@@ -311,21 +313,6 @@
       box-shadow: 0 12px 24px rgba(200,167,91,0.05);
     }
 
-    .program-time {
-      display: block;
-      color: var(--gold);
-      font-weight: 600;
-      font-size: 13px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      margin-bottom: 7px;
-    }
-
-    .program-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-    }
-
     .place-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 30px;
@@ -333,7 +320,8 @@
       margin-bottom: 8px;
     }
 
-    .place-text, .small-text {
+    .place-text,
+    .small-text {
       font-size: 14px;
       line-height: 1.8;
       color: rgba(91,70,51,0.82);
@@ -347,16 +335,18 @@
       border-radius: 999px;
       text-decoration: none;
       font-size: 12px;
-      letter-spacing: .24em;
+      letter-spacing: .12em;
       text-transform: uppercase;
       transition: .25s ease;
       margin: 6px;
+      cursor: pointer;
     }
 
     .btn {
       color: #fffdf8;
       background: linear-gradient(135deg, #d3b06a, #b79246);
       box-shadow: 0 10px 25px rgba(200,167,91,0.22);
+      border: none;
     }
 
     .btn:hover {
@@ -373,6 +363,41 @@
     .btn-outline:hover {
       background: rgba(200,167,91,0.08);
       transform: translateY(-2px);
+    }
+
+    .rsvp-input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(200,167,91,0.3);
+      outline: none;
+      font-size: 14px;
+      color: var(--text);
+      background: rgba(255,255,255,0.85);
+      margin-bottom: 14px;
+    }
+
+    .rsvp-options {
+      text-align: left;
+      margin-bottom: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .rsvp-options label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      cursor: pointer;
+      color: rgba(91,70,51,0.9);
+    }
+
+    .rsvp-options input[type="radio"] {
+      margin-top: 3px;
+      accent-color: #b79246;
+      flex-shrink: 0;
     }
 
     footer {
@@ -422,18 +447,9 @@
         opacity: .95;
       }
     }
-      .invite { padding: 16px; border-radius: 22px; }
-      .invite::before { inset: 10px; }
-      .invite::after { inset: 20px; }
-      .script { font-size: 44px; }
-      .names { font-size: 34px; }
-      .date-big { font-size: 46px; }
-      .count-card strong { font-size: 24px; }
-      h2 { font-size: 29px; }
-      .btn, .btn-outline { min-width: 100%; margin: 6px 0; }
-    }
   </style>
 </head>
+
 <body class="bg-pattern" data-lang="kk">
   <div class="petals">
     <span class="petal" style="left:4%; animation-duration:9s; animation-delay:0s;"></span>
@@ -451,6 +467,7 @@
     <div class="topbar">
       <button class="lang-switch" id="langToggle">Русский</button>
     </div>
+
     <main class="invite">
       <div class="hero-photo"></div>
       <div class="hero-photo" style="background-image: linear-gradient(rgba(255,250,242,0.48), rgba(255,250,242,0.74)), url('./photo2.jpg'); opacity:0.18;"></div>
@@ -461,7 +478,9 @@
         <div class="label"><span class="kk">Арнайы шақыру</span><span class="ru">Особое приглашение</span></div>
         <h1 class="script"><span class="kk">Дана</span><span class="ru">Дана</span></h1>
         <h1 class="script"><span class="kk">қыз ұзату</span><span class="ru">кыз узату</span></h1>
+
         <div class="divider"></div>
+
         <p class="lead">
           <span class="kk">Сіздерді қуанышымыздың қадірлі қонағы болуға, ақ тілегіңізді арнап, ерекше кешіміздің куәсі болуға шын жүректен шақырамыз.</span>
           <span class="ru">От всей души приглашаем вас стать дорогим гостем нашего торжества, разделить с нами радость этого особенного вечера и подарить свои тёплые пожелания.</span>
@@ -474,8 +493,8 @@
         </div>
 
         <div class="meta">
-          <span class="kk">Сағат 16:00-де<br /></span>
-          <span class="ru">В 16:00<br /></span>
+          <span class="kk">Сағат 16:00-де</span>
+          <span class="ru">В 16:00</span>
         </div>
 
         <div class="countdown">
@@ -484,8 +503,6 @@
           <div class="count-card"><strong id="minutes">0</strong><span><span class="kk">минут</span><span class="ru">минут</span></span></div>
         </div>
       </section>
-
-      
 
       <section class="section reveal">
         <div class="label"><span class="kk">Өтетін орны</span><span class="ru">Место проведения</span></div>
@@ -496,7 +513,10 @@
             <span class="ru">село Бастау, улица Сибагата Боранбаева 7</span>
           </div>
           <div style="margin-top:16px;">
-            <a class="btn" href="https://2gis.kz/firm/70000001110432194/68.836156%2C51.784692?m=68.836357%2C51.784566%2F18.2" target="_blank"><span class="kk">Картаны ашу</span><span class="ru">Открыть карту</span></a>
+            <a class="btn" href="https://2gis.kz/firm/70000001110432194/68.836156%2C51.784692?m=68.836357%2C51.784566%2F18.2" target="_blank">
+              <span class="kk">Картаны ашу</span>
+              <span class="ru">Открыть карту</span>
+            </a>
           </div>
         </div>
       </section>
@@ -504,29 +524,47 @@
       <section class="section reveal">
         <div class="label"><span class="kk">Жауап беру</span><span class="ru">Ответ</span></div>
         <h2><span class="kk">Қатысасыз ба?</span><span class="ru">Сможете прийти?</span></h2>
+
         <div class="rsvp-box">
-          <div style="margin-top:18px;">
-            <a class="btn kk" href="https://wa.me/77719057636?text=Сәлеметсіздер%21%20Мен%20қыз%20ұзату%20тойына%20қатысамын." target="_blank">Иә, барамын
-            </a>
-            <a class="btn ru" href="https://wa.me/77719057636?text=Здравствуйте!%20Я%20приду%20на%20той." target="_blank">Да, приду
-            </a>
-            <a class="btn-outline kk" href="https://wa.me/77719057636?text=Сәлеметсіздер%21%20Өкінішке%20орай%2C%20тойға%20қатыса%20алмаймын." target="_blank">Келе алмаймын
-            </a>
-            <a class="btn-outline ru" href="https://wa.me/77719057636?text=Здравствуйте!%20К%20сожалению,%20я%20не%20смогу%20прийти." target="_blank">Не смогу прийти
-            </a>
+          <input
+            id="guestName"
+            class="rsvp-input"
+            type="text"
+            placeholder="Аты-жөніңіз / Ваше имя"
+          >
+
+          <div class="rsvp-options">
+            <label>
+              <input type="radio" name="status" value="Әрине, келемін" data-ru="Да, приду">
+              <span class="kk">Әрине, келемін</span>
+              <span class="ru">Да, приду</span>
+            </label>
+
+            <label>
+              <input type="radio" name="status" value="Жұбайыммен келемін" data-ru="Буду с супругом(ой)">
+              <span class="kk">Жұбайыммен келемін</span>
+              <span class="ru">Буду с супругом(ой)</span>
+            </label>
+
+            <label>
+              <input type="radio" name="status" value="Өкінішке орай, келе алмаймын" data-ru="К сожалению, не смогу прийти">
+              <span class="kk">Өкінішке орай, келе алмаймын</span>
+              <span class="ru">К сожалению, не смогу прийти</span>
+            </label>
           </div>
+
+          <button class="btn" type="button" onclick="sendToWhatsApp()">
+            <span class="kk">Жауапты жіберу</span>
+            <span class="ru">Отправить ответ</span>
+          </button>
         </div>
       </section>
-
-      </main>
-
-    
+    </main>
 
     <footer>
-        <span class="kk">Сіздерді асыға күтеміз</span>
-        <span class="ru">Будем ждать вас с нетерпением</span>
-      </footer>
-    </main>
+      <span class="kk">Сіздерді асыға күтеміз</span>
+      <span class="ru">Будем ждать вас с нетерпением</span>
+    </footer>
   </div>
 
   <script>
@@ -536,6 +574,7 @@
       const now = new Date();
       const diff = target - now;
       const safe = Math.max(diff, 0);
+
       document.getElementById('days').textContent = Math.floor(safe / (1000 * 60 * 60 * 24));
       document.getElementById('hours').textContent = Math.floor((safe / (1000 * 60 * 60)) % 24);
       document.getElementById('minutes').textContent = Math.floor((safe / (1000 * 60)) % 60);
@@ -561,6 +600,30 @@
       langToggle.textContent = nextLang === 'kk' ? 'Русский' : 'Қазақша';
       document.documentElement.lang = nextLang;
     });
+
+    function sendToWhatsApp() {
+      const name = document.getElementById('guestName').value.trim();
+      const selected = document.querySelector('input[name="status"]:checked');
+      const lang = document.body.getAttribute('data-lang');
+
+      if (!name || !selected) {
+        alert(lang === 'kk'
+          ? 'Атыңызды жазып, жауап нұсқасын таңдаңыз'
+          : 'Введите имя и выберите вариант ответа');
+        return;
+      }
+
+      let message = '';
+
+      if (lang === 'kk') {
+        message = `Сәлеметсіздер! Менің атым: ${name}. Жауап: ${selected.value}.`;
+      } else {
+        message = `Здравствуйте! Меня зовут: ${name}. Ответ: ${selected.getAttribute('data-ru')}.`;
+      }
+
+      const url = 'https://wa.me/77719057636?text=' + encodeURIComponent(message);
+      window.open(url, '_blank');
+    }
   </script>
 </body>
 </html>
