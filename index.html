@@ -465,6 +465,9 @@
 
   <div class="wrapper">
     <div class="topbar">
+      <button onclick="toggleMusic()" class="btn">
+  🎵 Музыка
+</button>
       <button class="lang-switch" id="langToggle">Русский</button>
     </div>
 
@@ -627,6 +630,18 @@
       const url = 'https://wa.me/77719057636?text=' + encodeURIComponent(message);
       window.open(url, '_blank');
     }
+    function toggleMusic() {
+  const music = document.getElementById("music");
+
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+}
   </script>
+  <audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
